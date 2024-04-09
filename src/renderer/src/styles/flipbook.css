@@ -1,0 +1,23 @@
+#flipbook .page {
+  box-sizing: border-box;
+  background-color: white;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  backface-visibility: hidden;
+  width: 400px; /* Largeur d'une page */
+  height: 600px; /* Hauteur d'une page */
+  /* Ne surtout pas mettre de padding et margin sinon ça casse tout */
+}
+
+#flipbook .hard {
+  background-color: #888484; /* Couleur de fond plus foncée pour les couvertures */
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#flipbook {
+  width: 800px; /* Largeur du livre */
+  height: 600px; /* Hauteur du livre */
+}
+
+
