@@ -5,7 +5,7 @@ import { onMounted } from 'vue'
 
 onMounted(() => {
   $('#flipbook').turn({
-    width: 800,²
+    width: 800,
     height: 600,
     autoCenter: true
   })
