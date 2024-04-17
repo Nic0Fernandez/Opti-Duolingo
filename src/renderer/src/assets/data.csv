@@ -1,8 +1,8 @@
 Expression anglaise,Expression française,Image,Origine,Type
 All ears,Tout ouïe,,,3
 To cross one’s fingers,Croiser les doigts,,,1
-To beat around the bush,Tourner autour du pot,,,2
-A piece of cake,Quelque chose de très facile,,,1
+To beat around the bush,Tourner autour du pot,,Cette expression trouve son origine dans la chasse où l'on battait les buissons pour faire sortir le gibier sans s'approcher directement de ce dernier. Il s'agit donc aujourd'hui d'une métphore signifiant que l'on n'aborde pas directement un problème.,2
+A piece of cake,Quelque chose de très facile,,Cette expression communes à de nombreux pays aurait émergé en Angleterre au XXème siècle. Elle fait référence à la simplicité et la satisfaction de manger un morceau de gâteau.,1
 To feel under the weather,Ne pas se sentir bien,,,3
 Take it easy,Détends-toi ,,,3
 Go round in circles,Tourner en rond,,,1
@@ -16,7 +16,7 @@ The cream of the crop,La crème de la crème,,,3
 An early bird,Un lève tôt,,,5
 A dark owl,,./images/nightOwl.jpg,,5
 A cock and bull story,Une histoire à dormir debout,,,2
-It’s raining cats and dogs,Il pleut des cordes,./images/rainCatDog.jpg,,2
+It’s raining cats and dogs,Il pleut des cordes,./images/rainCatDog.jpg,Cette expression serait due aux déluges du XVIIème siècle en Angleterre où les rues inondées par de fortes pluies révélaient parfois les corps de chats et de chiens emportés par les eaux.,2
 To create a storm in a teacup,En faire tout un fromage,./images/teaCut.jpg,,2
 That rings me a bell,Cela me dit quelque chose,,,4
 We are in deep water,On est dans le pétrin,./images/deepWater.jpg,,2
@@ -69,8 +69,8 @@ To catch somebody red-handed,Prendre quelqu’un la main dans le sac,,,2
 A little bird told me,Mon petit doigt m’a dit,./images/littleBird.jpg,,2
 Sleep with the fishes,Mourir,,,4
 Put the cat among the pigeons,Créer des probèmes (mettre les pieds dans le plat ?),,,4
-Let the cat out of the bag,Révéler un secret,./images/catBag.jpg,,4
-To have a frog in one’s throat,Avoir un chat dans la gorge,,,2
+Let the cat out of the bag,Révéler un secret,./images/catBag.jpg,Cette expression remonte aux marchés médiéévaux. En effet des vendeurs peu scrupuleux remplaçaient les cochons par des chats dans des sacs ce qui était une marchandise de moindre valeur. Si le chat sortait du sac et s'échappait: la supercherie était révélée.,4
+To have a frog in one’s throat,Avoir un chat dans la gorge,,Dans la médecine médiévale les praticiens croyaient que les enrouements était causés par la présence d'un petit animal dans la gorge.,2
 To eat like a horse,Manger comme un ogre,,,2
 To be a people person,Être extraverti,,,5
 Selling like hotcakes,Se vendre comme des petits pains,,,2
@@ -117,7 +117,7 @@ To see eye to eye,Être d’accord / regarder dans la même direction ?,,,5
 To shed light on smthg,Mettre au clair / la lumière sur,,,3
 To splash out,Dépenser ,,,3
 Stab someone in the back,Mettre un couteau dans le dos,,,1
-To steal someone’s thunder,Voler la vedette,,,2
+To steal someone’s thunder,Voler la vedette,,Datant du début du XVIIIème siècle cette expression vient de John Dennis. Cette inventeur du théâtre avait conçu un dispositif pour imiter le son du tonnerre. Cependant son invention fut utilisée dans une oeuvre pour laquelle il n'a pas été crédité. Il aurait ainsi déclaré qu'on lui aurait volé son tonnerre.,2
 To stick to one’s guns,Camper sur ses positions,,,2
 To hear something straight from the horse’s mouth,Entendre qqch directement de l’intéressé,,,4
 To take smthg with a pinch of salt,Prendre qqch avec des pincettes,,,3
@@ -128,3 +128,8 @@ Through thick and thin,Contre vents et marées,,,2
 Time flies when you’re having fun,Le temps passe vite quand on s’amuse,,,2
 To cross a bridge when we come to it,Faire chaque chose en son temps,,,2
 A wild goose chase,Une perte de temps/ inatteignable,,,4
+To kick the bucket, Mourir,,Cette expression ferait référence à une ancienne méthode de mise à mort des animaux dans les boucheries. Le "bucket" désigne le support sur lequel l'animal était suspendu.,4
+To turn a blind eye, Tourner un oeil aveugle,,Cette expression est chargée d'histoire. Elle fait référence à l'Amiral Nelson lors de la Bataille de Copenhague. Ce dernier avait reçu un ordre de retraite mais ne voulait pas le suivre. Il a donc porté son téléscope à son oeil aveugle et prétendu ne pas voir le signal., 
+To throw in the towel, Jeter l'éponge,,L'origine de cette expression est le monde de la boxe. Quand un entraîneur trouve que son boxeur n'est plus en état de continuer le combat il va lancer une serviette sur le ring pour signifier son abandon. Ainsi cette expression marque l'action de renoncer/ de déclarer sa défaite.,
+To bite the bullet, Mordre la balle/ faire face à une situation douloureuse avec courage,,En l'absence d'anesthésie pendant la guerre les médecins demandaient parfois aux patients de mordre dans une balle pour endurer une opération chirurgicale,
+Cut the mustard, Etre à la hauteur/ répondre aux attentes,,Deux origines sont possibles pour cette expression. Elle fait selon certains référence à l'expression "to pass muster" qui signifie "passer l'inspection" dont elle serait un dérivé phonétique. Pour d'autres elle fait référence à la difficulté de couper la moutarde sauvage.,5
