@@ -1,27 +1,20 @@
 <script setup lang="ts">
 import './styles/base.css'
 import './styles/flipbook.css'
-import { onMounted } from 'vue'
+import Livre from './components/Livre.vue'
+import { ref, onMounted } from 'vue'
+
+const csvData = ref('')
 
 onMounted(() => {
-  $('#flipbook').turn({
-    width: 800,
-    height: 600,
-    autoCenter: true
-  })
+  fetch('/pathToCsv')
+    .then((response) => response.text())
+    .then((data) => {
+      csvData.value = data
+    })
 })
 </script>
 
 <template>
-  <div id="flipbook">
-    <div class="hard">Turn.js</div>
-    <div class="hard"></div>
-    <div class="page">Page 1</div>
-    <div class="page">Page 2</div>
-    <div class="page">Page 3</div>
-    <div class="page">Page 4</div>
-    <div class="hard"></div>
-    <div class="hard"></div>
-  </div>
-  <Versions />
+  <Livre :csv-data="csvData" />
 </template>
