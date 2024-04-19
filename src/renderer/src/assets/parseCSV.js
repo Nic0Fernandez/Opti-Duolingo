@@ -1,19 +1,25 @@
-export async function parseCSV(csvData) {
-  const Papa = require('papaparse')
-  const result = await new Promise((resolve) => {
-    Papa.parse(csvData, {
+import Papa from 'papaparse'
+
+export async function parseCSV(csvUrl) {
+  const result = await new Promise((resolve, reject) => {
+    Papa.parse(csvUrl, {
+      download: true,
       header: true,
       complete: (results) => {
         resolve(results.data)
+      },
+      error: (error) => {
+        reject(error)
       }
     })
   })
+  console.log('Données parsées:', result)
   return result.map((item, index) => ({
     id: index,
-    expressionEn: item['expressionEn'],
-    expressionFr: item['expressionFr'],
-    origine: item['origine'],
-    imagePath: item['ImagePath'],
-    type: item['type']
+    expressionEn: item['ExpressionAnglaise'],
+    expressionFr: item['ExpressionFrançaise'],
+    imagePath: item['Image'],
+    origine: item['Origine'],
+    type: item['Type']
   }))
 }
