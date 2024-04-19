@@ -18,6 +18,7 @@
 #flipbook {
   width: 800px; /* Largeur du livre */
   height: 600px; /* Hauteur du livre */
+  position: relative;
 }
 
 
