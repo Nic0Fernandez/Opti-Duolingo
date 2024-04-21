@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, computed } from 'vue'
 import '../styles/imagePage.css'
 
 const props = defineProps({

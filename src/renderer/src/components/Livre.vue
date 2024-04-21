@@ -79,7 +79,8 @@ function addLearningPages() {
       imageContainer.classname = 'page'
       // eslint-disable-next-line vue/one-component-per-file
       const imageApp = createApp(ImagePage, {
-        imagePath: page.imagePath
+        imagePath:
+          'https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets$/images/${page.imagePath}'
       })
       imageApp.mount(imageContainer)
       $('#flipbook').turn('addPage', imageContainer, $('#flipbook').turn('pages') + 1)
