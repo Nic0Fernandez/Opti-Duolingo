@@ -1,8 +1,9 @@
 <script setup>
-import { onMounted, ref, nextTick } from 'vue'
+import { onMounted, onUnmounted, ref, nextTick, createApp } from 'vue'
 import { parseCSV } from '../assets/parseCSV.js'
 import '../styles/flipbook.css'
 import PageAccueil from './PageAccueil.vue'
+import LearningPage from './LearningPage.vue'
 
 const props = defineProps({
   csvUrl: String
@@ -14,8 +15,6 @@ onMounted(() => {
   nextTick().then(() => {
     $('#flipbook')
       .turn({
-        width: 800,
-        height: 600,
         autoCenter: true
       })
       .on('turning', function (event, page, view) {
@@ -32,18 +31,47 @@ onMounted(() => {
           event.preventDefault() // Empêcher le retour à la page accueil
         }
       })
+    function resizeBook() {
+      const maxWidth = window.innerWidth * 0.8
+      const maxHeight = window.innerHeight
+
+      const aspectRatio = 4 / 3
+      let width = maxWidth
+      let height = maxWidth / aspectRatio
+
+      if (height > maxHeight) {
+        height = maxHeight
+        width = height * aspectRatio
+      }
+      $('#flipbook').turn('size', width, height)
+    }
+    window.addEventListener('resize', resizeBook)
+    resizeBook()
   })
+})
+
+onUnmounted(() => {
+  // Nettoyer l'écouteur d'événements lors de la destruction du composant
+  window.removeEventListener('resize', resizeBook)
 })
 
 function addLearningPages() {
   parseCSV(props.csvUrl).then((loadedPages) => {
     pages.value = loadedPages
     loadedPages.forEach((page) => {
-      $('#flipbook').turn(
-        'addPage',
-        `<div class='page'>${page.expressionEn} - ${page.expressionFr}</div>`,
-        $('#flipbook').turn('pages') + 1
-      )
+      const container = document.createElement('div')
+      container.className = 'page'
+
+      // Créer une instance de l'application Vue pour le composant LearningPage
+      const app = createApp(LearningPage, {
+        expressionFr: page.expressionFr,
+        expressionEn: page.expressionEn,
+        origine: page.origine
+      })
+
+      // Monter l'instance sur le conteneur créé
+      app.mount(container)
+      $('#flipbook').turn('addPage', container, $('#flipbook').turn('pages') + 1)
     })
     $('#flipbook').turn('next')
   })

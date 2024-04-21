@@ -4,8 +4,6 @@
   color: black;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   backface-visibility: hidden;
-  width: 400px; /* Largeur d'une page */
-  height: 600px; /* Hauteur d'une page */
   /* Ne surtout pas mettre de padding et margin sinon ça casse tout */
 }
 
@@ -16,8 +14,9 @@
 }
 
 #flipbook {
-  width: 800px; /* Largeur du livre */
-  height: 600px; /* Hauteur du livre */
+  max-width: 80%; /* Largeur du livre */
+  max-height: 100%; /* Hauteur du livre */
+  margin: 0 auto;
   position: relative;
 }
 
