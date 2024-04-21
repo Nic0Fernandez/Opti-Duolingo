@@ -5,6 +5,8 @@ import '../styles/flipbook.css'
 import PageAccueil from './PageAccueil.vue'
 import LearningPage from './LearningPage.vue'
 import ImagePage from './ImagePage.vue'
+import TestPage from './TestPage.vue'
+import CorrectionPage from './CorrectionPage.vue'
 
 const props = defineProps({
   csvUrl: String
@@ -80,7 +82,6 @@ function addLearningPages() {
       // eslint-disable-next-line vue/one-component-per-file
       const imageApp = createApp(ImagePage, {
         imagePath: `https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets/images/${page.imagePath}`
-
       })
       imageApp.mount(imageContainer)
       $('#flipbook').turn('addPage', imageContainer, $('#flipbook').turn('pages') + 1)
@@ -90,12 +91,35 @@ function addLearningPages() {
 }
 
 function goToTestPage() {
-  $('#flipbook').turn(
-    'addPage',
-    "<div class='page'>Test Page - Content Goes Here</div>",
-    $('#flipbook').turn('pages') + 1
-  )
-  $('#flipbook').turn('next')
+  parseCSV(props.csvUrl).then((loadedPages) => {
+    pages.value = loadedPages
+    loadedPages.forEach((page) => {
+      const testContainer = document.createElement('div')
+      testContainer.className = 'page'
+
+      // Créer une instance de l'application Vue pour le composant LearningPage
+      // eslint-disable-next-line vue/one-component-per-file
+      const testApp = createApp(TestPage, {
+        expressionFr: page.expressionFr,
+        expressionEn: page.expressionEn
+      })
+
+      // Monter l'instance sur le conteneur créé
+      testApp.mount(testContainer)
+      $('#flipbook').turn('addPage', testContainer, $('#flipbook').turn('pages') + 1)
+
+      const correctionContainer = document.createElement('div')
+      correctionContainer.classname = 'page'
+      // eslint-disable-next-line vue/one-component-per-file
+      const correctionApp = createApp(CorrectionPage, {
+        imagePath: `https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets/images/${page.imagePath}`,
+        origine: page.origine
+      })
+      correctionApp.mount(correctionContainer)
+      $('#flipbook').turn('addPage', correctionContainer, $('#flipbook').turn('pages') + 1)
+    })
+    $('#flipbook').turn('next')
+  })
 }
 </script>
 

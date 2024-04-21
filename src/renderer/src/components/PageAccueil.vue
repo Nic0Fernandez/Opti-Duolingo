@@ -1,5 +1,5 @@
 <script setup>
-const emit = defineEmits(['learning', 'test']);
+const emit = defineEmits(['learning', 'test'])
 
 function handleLearning() {
   emit('learning')
