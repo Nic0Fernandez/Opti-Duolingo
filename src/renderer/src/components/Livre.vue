@@ -4,6 +4,7 @@ import { parseCSV } from '../assets/parseCSV.js'
 import '../styles/flipbook.css'
 import PageAccueil from './PageAccueil.vue'
 import LearningPage from './LearningPage.vue'
+import ImagePage from './ImagePage.vue'
 
 const props = defineProps({
   csvUrl: String
@@ -63,6 +64,7 @@ function addLearningPages() {
       container.className = 'page'
 
       // Créer une instance de l'application Vue pour le composant LearningPage
+      // eslint-disable-next-line vue/one-component-per-file
       const app = createApp(LearningPage, {
         expressionFr: page.expressionFr,
         expressionEn: page.expressionEn,
@@ -72,6 +74,15 @@ function addLearningPages() {
       // Monter l'instance sur le conteneur créé
       app.mount(container)
       $('#flipbook').turn('addPage', container, $('#flipbook').turn('pages') + 1)
+
+      const imageContainer = document.createElement('div')
+      imageContainer.classname = 'page'
+      // eslint-disable-next-line vue/one-component-per-file
+      const imageApp = createApp(ImagePage, {
+        imagePath: page.imagePath
+      })
+      imageApp.mount(imageContainer)
+      $('#flipbook').turn('addPage', imageContainer, $('#flipbook').turn('pages') + 1)
     })
     $('#flipbook').turn('next')
   })
