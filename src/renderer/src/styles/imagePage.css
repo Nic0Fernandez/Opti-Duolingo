@@ -1,0 +1,11 @@
+.image img {
+  width: auto;
+  height: auto;
+}
+
+.image {
+  background-image: url('../assets/vintage-grunge-paper-background1.jpg') !important;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}

@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+.learning-page {
+  background-image: url('../assets/vintage-grunge-paper-background1.jpg') !important;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.section {
+  margin: 15px 10px; /* marges haut/bas de 15px et gauche/droite de 10px */
+}
+
+.section-1{
+  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.text-block{
+  font-family: 'Great Vibes', cursive !important; /* Utilisez la police 'Great Vibes' */
+  font-size: 5ch;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.paragraph {
+  font-family: 'Inconsolata',  monospace;
+}
+
+
