@@ -1,10 +1,26 @@
 <script setup>
 import '../styles/testPage.css'
+import { ref } from 'vue'
 
 const props = defineProps({
   expressionFr: String,
-  expressionEn: String
+  expressionEn: String,
+  showCorrection: Function,
+  increaseScore: Function
 })
+
+const userAnswer = ref('')
+const feedback = ref('')
+
+function checkAnswer() {
+  if (userAnswer.value.toLowerCase() === props.expressionEn.toLowerCase()) {
+    feedback.value = 'Bonne réponse'
+    props.increaseScore()
+  } else {
+    feedback.value = `Mauvaise réponse, la bonne réponse était : ${props.expressionEn}`
+  }
+  props.showCorrection()
+}
 </script>
 
 <template>
@@ -14,16 +30,15 @@ const props = defineProps({
     </section>
     <section class="section">
       <input
+        v-model="userAnswer"
         type="text"
-        class="text-block text-center"
+        class="text-input text-center"
         placeholder="Veuillez entrez la traduction anglaise"
       />
     </section>
     <section class="section">
-      <div class="input">{{ expressionEn }}</div>
-    </section>
-    <section class="section">
       <button @click="checkAnswer">Valider</button>
+      <p>{{ feedback }}</p>
     </section>
   </div>
 </template>

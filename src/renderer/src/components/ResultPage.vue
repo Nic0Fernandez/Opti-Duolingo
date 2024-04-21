@@ -1,24 +1,20 @@
 <script setup>
-import { onMounted } from 'vue'
-import '../styles/imagePage.css'
+import '../styles/resultPage.css'
 
 const props = defineProps({
-  imagePath: String,
+  score: String,
   onReturnHome: Function
 })
 
 function returnToHomePage() {
   props.onReturnHome()
 }
-
-onMounted(() => {
-  console.log(props.imagePath)
-})
 </script>
 
 <template>
-  <div class="image">
-    <img :src="imagePath" alt="Image" />
+  <div class="result-page">
+    <!--<img :src="props.imagePath" alt="Image de l'expression" />-->
+    <div>{{ score }}</div>
     <button @click="returnToHomePage">Retourner à l'accueil</button>
   </div>
 </template>

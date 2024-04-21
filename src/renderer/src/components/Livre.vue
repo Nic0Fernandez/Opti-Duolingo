@@ -7,12 +7,15 @@ import LearningPage from './LearningPage.vue'
 import ImagePage from './ImagePage.vue'
 import TestPage from './TestPage.vue'
 import CorrectionPage from './CorrectionPage.vue'
+import ResultPage from './ResultPage.vue'
 
 const props = defineProps({
   csvUrl: String
 })
 
 const pages = ref([])
+let compteur = 1
+let score = 0
 
 onMounted(() => {
   nextTick().then(() => {
@@ -58,22 +61,23 @@ onUnmounted(() => {
   window.removeEventListener('resize', resizeBook)
 })
 
+function getRandomItem(set) {
+  let items = Array.from(set)
+  return items[Math.floor(Math.random() * items.length)]
+}
+
 function addLearningPages() {
   parseCSV(props.csvUrl).then((loadedPages) => {
     pages.value = loadedPages
     loadedPages.forEach((page) => {
       const container = document.createElement('div')
       container.className = 'page'
-
-      // Créer une instance de l'application Vue pour le composant LearningPage
       // eslint-disable-next-line vue/one-component-per-file
       const app = createApp(LearningPage, {
         expressionFr: page.expressionFr,
         expressionEn: page.expressionEn,
         origine: page.origine
       })
-
-      // Monter l'instance sur le conteneur créé
       app.mount(container)
       $('#flipbook').turn('addPage', container, $('#flipbook').turn('pages') + 1)
 
@@ -81,7 +85,8 @@ function addLearningPages() {
       imageContainer.classname = 'page'
       // eslint-disable-next-line vue/one-component-per-file
       const imageApp = createApp(ImagePage, {
-        imagePath: `https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets/images/${page.imagePath}`
+        imagePath: `https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets/images/${page.imagePath}`,
+        onReturnHome: () => handleReturnHome()
       })
       imageApp.mount(imageContainer)
       $('#flipbook').turn('addPage', imageContainer, $('#flipbook').turn('pages') + 1)
@@ -90,36 +95,82 @@ function addLearningPages() {
   })
 }
 
+function handleReturnHome() {
+  compteur = 1
+  score = 0
+  $('#flipbook').turn('page', 3)
+  const totalPages = $('#flipbook').turn('pages')
+  for (let i = totalPages; i > 3; i--) {
+    $('#flipbook').turn('removePage', i)
+  }
+}
+
 function goToTestPage() {
   parseCSV(props.csvUrl).then((loadedPages) => {
     pages.value = loadedPages
-    loadedPages.forEach((page) => {
-      const testContainer = document.createElement('div')
-      testContainer.className = 'page'
+    const randomPage = getRandomItem(pages.value)
+    console.log(randomPage)
+    const testContainer = document.createElement('div')
+    testContainer.className = 'page'
 
-      // Créer une instance de l'application Vue pour le composant LearningPage
-      // eslint-disable-next-line vue/one-component-per-file
-      const testApp = createApp(TestPage, {
-        expressionFr: page.expressionFr,
-        expressionEn: page.expressionEn
-      })
-
-      // Monter l'instance sur le conteneur créé
-      testApp.mount(testContainer)
-      $('#flipbook').turn('addPage', testContainer, $('#flipbook').turn('pages') + 1)
-
-      const correctionContainer = document.createElement('div')
-      correctionContainer.classname = 'page'
-      // eslint-disable-next-line vue/one-component-per-file
-      const correctionApp = createApp(CorrectionPage, {
-        imagePath: `https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets/images/${page.imagePath}`,
-        origine: page.origine
-      })
-      correctionApp.mount(correctionContainer)
-      $('#flipbook').turn('addPage', correctionContainer, $('#flipbook').turn('pages') + 1)
+    // eslint-disable-next-line vue/one-component-per-file
+    const testApp = createApp(TestPage, {
+      expressionFr: randomPage.expressionFr,
+      expressionEn: randomPage.expressionEn,
+      showCorrection: () => handleShowingCorrection(randomPage.imagePath, randomPage.origine),
+      increaseScore: () => {
+        score++
+      }
     })
+    testApp.mount(testContainer)
+    $('#flipbook').turn('addPage', testContainer, $('#flipbook').turn('pages') + 1)
+
+    const emptyContainer = document.createElement('div')
+    emptyContainer.classname = 'page'
+    $('#flipbook').turn('addPage', emptyContainer, $('#flipbook').turn('pages') + 1)
     $('#flipbook').turn('next')
   })
+}
+
+function handleShowingCorrection(path, origine) {
+  // eslint-disable-next-line vue/one-component-per-file
+  const correctionApp = createApp(CorrectionPage, {
+    origine: origine,
+    imagePath: `https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets/images/${path}`,
+    onNextQuestion: () => handleNextQuestion()
+  })
+  const correctionContainer = document.createElement('div')
+  correctionContainer.classname = 'page correction-page'
+  correctionApp.mount(correctionContainer)
+  $('#flipbook').turn('addPage', correctionContainer, $('#flipbook').turn('pages'))
+}
+
+function handleNextQuestion() {
+  if (compteur < 4) {
+    compteur++
+    $('#flipbook').turn('page', 3)
+    const totalPages = $('#flipbook').turn('pages')
+    for (let i = totalPages; i > 3; i--) {
+      $('#flipbook').turn('removePage', i)
+    }
+    goToTestPage()
+  } else {
+    displayResult()
+  }
+}
+
+function displayResult() {
+  // eslint-disable-next-line vue/one-component-per-file
+  const scoreApp = createApp(ResultPage, {
+    score: score,
+    onReturnHome: () => handleReturnHome()
+  })
+  const scoreContainer = document.createElement('div')
+  scoreContainer.classname = 'page score-page'
+  scoreApp.mount(scoreContainer)
+  $('#flipbook').turn('addPage', scoreContainer, $('#flipbook').turn('pages'))
+  $('#flipbook').turn('next')
+
 }
 </script>
 

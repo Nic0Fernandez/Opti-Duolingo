@@ -1,25 +1,26 @@
 <script setup>
+import { onMounted } from 'vue'
 import '../styles/correctionPage.css'
 
 const props = defineProps({
   origine: String,
-  imagePath: String
+  imagePath: String,
+  onNextQuestion: Function
 })
+
+onMounted(() => {
+  console.log(props.imagePath)
+})
+
+function getNextQuestion() {
+  props.onNextQuestion()
+}
 </script>
 
 <template>
   <div class="correction-page">
-    <div class="images">
-      <img :src="imagePath" alt="Image" />
-    </div>
-    <section class="section">
-      <div class="text-block text-center">Origine</div>
-    </section>
-    <section class="section">
-      <p class="paragraph">{{ origine }}</p>
-    </section>
-    <section class="section">
-      <button @click="nextQuestion">Question suivante</button>
-    </section>
+    <img :src="props.imagePath" alt="Image de l'expression" />
+    <div>{{ props.origine }}</div>
+    <button @click="getNextQuestion">Question suivante</button>
   </div>
 </template>
