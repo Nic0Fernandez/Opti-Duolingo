@@ -12,7 +12,7 @@ function handleTest() {
 
 <template>
   <div class="home-page">
-    <button @click="handleLearning">Learning</button>
+    <button @click="handleLearning">Apprentissage</button>
     <button @click="handleTest">Test</button>
   </div>
 </template>
