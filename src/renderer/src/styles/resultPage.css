@@ -9,6 +9,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 5%;
+}
+
+.result-page img {
+  width: 60%;
+  height: 60%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .text-block{
@@ -33,6 +42,10 @@
   transition: all 0.3s ease; /* Transition douce pour les interactions */
   margin-bottom: 20px;
   margin-top: 70%;
+  transition: all 0.3s ease; /* Transition douce pour les interactions */
+  position: fixed; /* Fixe le bouton par rapport à la fenêtre du navigateur */
+  bottom: 20px; /* Positionne le bouton 20px au-dessus du bas de la page */
+  z-index: 1000; /* Assure que le bouton reste au-dessus des autres élé
 }
 
 .buttonResult:hover {
@@ -47,4 +60,15 @@
   justify-content: center;
   padding-top: 20px;
 }
+
+.shake {
+  border: solid 8px #d4b483; /* Une couleur dorée vieillie pour la bordure */
+  padding: 10px; /* Espacement entre l'image et la bordure pour donner de la profondeur */
+  background-color: #f4f4f4; /* Un fond clair pour l'espace de padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre portée pour ajouter un effet 3D */
+  border-radius: 4px; /* Un léger arrondi des angles pour adoucir les contours */
+}
+
+
+
 

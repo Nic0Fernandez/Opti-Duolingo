@@ -28,8 +28,9 @@ function checkAnswer() {
     <section class="section-1">
       <div class="text-block text-left">{{ expressionFr }}</div>
     </section>
-    <section class="section">
+    <section class="section2">
       <input
+        id=answer
         v-model="userAnswer"
         type="text"
         class="text-input text-center"

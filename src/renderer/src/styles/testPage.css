@@ -44,3 +44,17 @@
   cursor: pointer;
 }
 
+input {
+  margin-left: 20px;
+  margin-top: 10px;
+  min-width: 250px;
+  background-color: #f1e9dd; /* Couleur de fond simulant un parchemin */
+  color: #604c3c; /* Couleur du texte, un brun foncé pour contraster avec le fond */
+  padding: 10px 20px;
+  font-size: 13.5px;
+  font-family: 'Times New Roman', serif; /* Police classique pour un effet ancien */
+  border: 2px solid #8c7851; /* Bordure solide d'une couleur vieux or */
+  border-radius: 5px; /* Légèrement arrondi pour adoucir les bords */
+  text-shadow: 1px 1px #f5efdc; /* Ombre légère pour donner de la profondeur au texte */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre externe pour un effet légèrement surélevé */
+}

@@ -146,7 +146,7 @@ function handleShowingCorrection(path, origine) {
 }
 
 function handleNextQuestion() {
-  if (compteur < 4) {
+  if (compteur < 10) {
     compteur++
     $('#flipbook').turn('page', 3)
     const totalPages = $('#flipbook').turn('pages')

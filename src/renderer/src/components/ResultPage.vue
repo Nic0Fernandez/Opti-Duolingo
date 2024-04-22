@@ -20,13 +20,13 @@ function returnToHomePage() {
 function displayImgResult() {
   if (props.score < 4) {
     imgScore.value =
-      'https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets/images/shakespeareProud.webp'
+      'https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets/images/shakespeareDisappointed.webp'
   }
-  if (props.score < 8) {
+  else if (props.score < 8) {
     imgScore.value =
-      'https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets/images/shakespeareProud.webp'
+      'https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets/images/shakespareMitigated.webp'
   }
-  if (props.score < 11) {
+  else {
     imgScore.value =
       'https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets/images/shakespeareProud.webp'
   }
@@ -35,7 +35,7 @@ function displayImgResult() {
 
 <template>
   <div class="result-page">
-    <img :src="imgScore" alt="Résultat de votre test" />
+    <img class="shake" :src="imgScore" alt="Résultat de votre test" />
     <div class="score">Votre score est de : {{ score }}/10</div>
     <button class="buttonResult" @click="returnToHomePage">Retourner à l'accueil</button>
   </div>
