@@ -19,6 +19,6 @@ onMounted(() => {
 <template>
   <div class="image">
     <img :src="imagePath" alt="Image" />
-    <button @click="returnToHomePage">Retourner à l'accueil</button>
+    <button class="button-style" @click="returnToHomePage">Retourner à l'accueil</button>
   </div>
 </template>
