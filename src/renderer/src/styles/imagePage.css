@@ -1,6 +1,6 @@
 .image img {
-  width: 80%;
-  height: 80%;
+  width: 70%;
+  height: 70%;
   margin:25px;
 }
 
@@ -14,20 +14,31 @@
   align-items: center;
 }
 
+.ancient-style-border {
+  border: solid 8px #d4b483; /* Une couleur dorée vieillie pour la bordure */
+  padding: 10px; /* Espacement entre l'image et la bordure pour donner de la profondeur */
+  background-color: #f4f4f4; /* Un fond clair pour l'espace de padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre portée pour ajouter un effet 3D */
+  border-radius: 4px; /* Un léger arrondi des angles pour adoucir les contours */
+}
+
 .button-style {
   background-color: #f4e9d8; /* Couleur de fond simulant un parchemin */
   color: #604c3c; /* Couleur du texte, un brun foncé pour contraster avec le fond */
   padding: 10px 20px;
-  font-family: 'Times New Roman', serif; /* Police classique pour un effet ancien */
+  font-family: 'Times New Roman', serif;
   border: 2px solid #8c7851; /* Bordure solide d'une couleur vieux or */
   border-radius: 5px; /* Légèrement arrondi pour adoucir les bords */
   text-shadow: 1px 1px #f5efdc; /* Ombre légère pour donner de la profondeur au texte */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre externe pour un effet légèrement surélevé */
   transition: all 0.3s ease; /* Transition douce pour les interactions */
+  position: fixed; /* Fixe le bouton par rapport à la fenêtre du navigateur */
+  bottom: 20px; /* Positionne le bouton 20px au-dessus du bas de la page */
+  z-index: 1000; /* Assure que le bouton reste au-dessus des autres éléments de la page */
 }
 
 .button-style:hover {
-  background-color: #e8d9c3; /* Changement de couleur au survol pour une interaction visible */
-  color: #503a20; /* Assombrissement du texte au survol */
+  background-color: #e8d9c3;
+  color: #503a20;
   cursor: pointer;
 }
