@@ -32,6 +32,7 @@ function checkAnswer() {
       <input
         id=answer
         v-model="userAnswer"
+        autocomplete="off"
         type="text"
         class="text-input text-center"
         placeholder="Veuillez entrez la traduction anglaise"

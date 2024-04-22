@@ -182,7 +182,7 @@ function displayResult() {
 
 <template>
   <div id="flipbook">
-    <div class="hard">Couverture avant</div>
+    <div class="hard">English Idioms</div>
     <div class="hard"></div>
     <PageAccueil @learning="addLearningPages" @test="goToTestPage" />
   </div>
