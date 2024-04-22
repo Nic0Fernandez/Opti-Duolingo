@@ -1,4 +1,6 @@
 <script setup>
+import '../styles/pageAccueil.css'
+
 const emit = defineEmits(['learning', 'test'])
 
 function handleLearning() {
@@ -12,7 +14,7 @@ function handleTest() {
 
 <template>
   <div class="home-page">
-    <button @click="handleLearning">Apprentissage</button>
-    <button @click="handleTest">Test</button>
+    <button class="buttonAccueil" @click="handleLearning">Apprentissage</button>
+    <button class="buttonAccueil" @click="handleTest">Test</button>
   </div>
 </template>

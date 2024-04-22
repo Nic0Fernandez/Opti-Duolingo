@@ -37,7 +37,7 @@ function checkAnswer() {
       />
     </section>
     <section class="section">
-      <button @click="checkAnswer">Valider</button>
+      <button class="buttonTest" @click="checkAnswer">Valider</button>
       <p>{{ feedback }}</p>
     </section>
   </div>

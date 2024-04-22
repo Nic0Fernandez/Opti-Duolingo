@@ -21,6 +21,6 @@ function getNextQuestion() {
   <div class="correction-page">
     <img :src="props.imagePath" alt="Image de l'expression" />
     <div>{{ props.origine }}</div>
-    <button @click="getNextQuestion">Question suivante</button>
+    <button class="buttonCorrect" @click="getNextQuestion">Question suivante</button>
   </div>
 </template>

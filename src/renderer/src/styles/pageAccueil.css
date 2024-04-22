@@ -5,7 +5,21 @@
   justify-content: center;
 }
 
-button {
-  margin: 10px;
+.buttonAccueil {
+  background-color: #f4e9d8; /* Couleur de fond simulant un parchemin */
+  color: #604c3c; /* Couleur du texte, un brun foncé pour contraster avec le fond */
   padding: 10px 20px;
+  font-family: 'Times New Roman', serif; /* Police classique pour un effet ancien */
+  border: 2px solid #8c7851; /* Bordure solide d'une couleur vieux or */
+  border-radius: 5px; /* Légèrement arrondi pour adoucir les bords */
+  text-shadow: 1px 1px #f5efdc; /* Ombre légère pour donner de la profondeur au texte */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre externe pour un effet légèrement surélevé */
+  transition: all 0.3s ease; /* Transition douce pour les interactions */
+  margin-bottom: 20px;
+}
+
+.buttonAccueil:hover {
+  background-color: #e8d9c3; /* Changement de couleur au survol pour une interaction visible */
+  color: #503a20; /* Assombrissement du texte au survol */
+  cursor: pointer;
 }
