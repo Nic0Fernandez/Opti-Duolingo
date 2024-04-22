@@ -9,7 +9,7 @@
   display:flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 .text-block{
@@ -20,11 +20,15 @@
 .correction-page img {
   width: 60%;
   height: 60%;
-  padding-left: 25px;
-  padding-top: 25px;
   display:flex;
   justify-content: center;
   align-items: center;
+}
+
+.origineCorrection {
+  margin:25px;
+  font-family: 'Inconsolata',  monospace;
+  font-size: 14px;
 }
 
 .buttonCorrect {
@@ -37,8 +41,11 @@
   text-shadow: 1px 1px #f5efdc; /* Ombre légère pour donner de la profondeur au texte */
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ombre externe pour un effet légèrement surélevé */
   transition: all 0.3s ease; /* Transition douce pour les interactions */
-  margin-bottom: 20px;
-  margin-top: 10%;
+  margin-top: 5%;
+  transition: all 0.3s ease; /* Transition douce pour les interactions */
+  position: fixed; /* Fixe le bouton par rapport à la fenêtre du navigateur */
+  bottom: 20px; /* Positionne le bouton 20px au-dessus du bas de la page */
+  z-index: 1000; /* Assure que le bouton reste au-dessus des autres élé
 }
 
 .buttonCoorect:hover {

@@ -11,13 +11,13 @@ const props = defineProps({
 <template>
   <div class="learning-page">
     <section class="section-1">
-      <div class="text-block text-left">{{ expressionFr }}</div>
+      <div class="text-block-learning text-left">{{ expressionFr }}</div>
     </section>
     <section class="section">
-      <div class="text-block text-right">{{ expressionEn }}</div>
+      <div class="text-block-learning text-right">{{ expressionEn }}</div>
     </section>
     <section class="section">
-      <div class="text-block text-center">Origine</div>
+      <div class="text-block-origine text-center">Origine</div>
     </section>
     <section class="section">
       <p class="paragraph">{{ origine }}</p>

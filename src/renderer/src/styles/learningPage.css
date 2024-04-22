@@ -18,10 +18,18 @@
   margin-right: 10px;
 }
 
-.text-block{
+.text-block-learning{
   font-family: 'Great Vibes', cursive !important; /* Utilisez la police 'Great Vibes' */
-  font-size: 5ch;
+  font-size: 35px;
 }
+
+.text-block-origine{
+  font-family: 'Great Vibes', cursive !important; /* Utilisez la police 'Great Vibes' */
+  font-size: 4ch;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
 
 .text-left{
   text-align: left;
@@ -37,6 +45,8 @@
 
 .paragraph {
   font-family: 'Inconsolata',  monospace;
+  font-size: 14px;
+
 }
 
 
