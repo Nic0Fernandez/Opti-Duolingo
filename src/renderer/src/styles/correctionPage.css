@@ -6,16 +6,10 @@
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-}
-
-.section {
-  margin: 15px 10px; /* marges haut/bas de 15px et gauche/droite de 10px */
-}
-
-.section-1{
-  margin-bottom: 15px;
-  margin-left: 10px;
-  margin-right: 10px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10%;
 }
 
 .text-block{
@@ -45,7 +39,6 @@
   transition: all 0.3s ease; /* Transition douce pour les interactions */
   margin-bottom: 20px;
   margin-top: 10%;
-  margin-left: 26%;
 }
 
 .buttonCoorect:hover {
@@ -54,3 +47,15 @@
   cursor: pointer;
 }
 
+.image img {
+  width: 70%;
+  height: 70%;
+}
+
+.border {
+  border: solid 8px #d4b483; /* Une couleur dorée vieillie pour la bordure */
+  padding: 10px; /* Espacement entre l'image et la bordure pour donner de la profondeur */
+  background-color: #f4f4f4; /* Un fond clair pour l'espace de padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Ombre portée pour ajouter un effet 3D */
+  border-radius: 4px; /* Un léger arrondi des angles pour adoucir les contours */
+}
