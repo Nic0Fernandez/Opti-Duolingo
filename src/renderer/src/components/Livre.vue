@@ -126,6 +126,12 @@ function goToTestPage() {
     $('#flipbook').turn('addPage', testContainer, $('#flipbook').turn('pages') + 1)
 
     const emptyContainer = document.createElement('div')
+    emptyContainer.className = 'page empty-page'
+    emptyContainer.style.backgroundImage =
+      "url('https://raw.githubusercontent.com/Nic0Fernandez/Opti-Duolingo/main/src/renderer/src/assets/vintage-grunge-paper-background1.jpg')"
+    emptyContainer.style.backgroundSize = 'cover'
+    emptyContainer.style.backgroundPosition = 'center'
+    emptyContainer.style.minHeight = '100vh'
     emptyContainer.classname = 'page'
     $('#flipbook').turn('addPage', emptyContainer, $('#flipbook').turn('pages') + 1)
     $('#flipbook').turn('next')
